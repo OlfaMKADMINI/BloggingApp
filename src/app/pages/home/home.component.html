@@ -1,0 +1,48 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to Olfa App!
+  </h1>
+</div>
+
+<mat-toolbar>
+  <mat-toolbar-row>
+    <a target="_blank" href="https://material.angular.io/">Angular Material</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a target="_blank" href="https://www.npmjs.com/package/@angular/flex-layout">Flex-Layout</a>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+    <a target="_blank" href="https://www.letsboot.com/">Letsboot.com</a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+
+<mat-form-field class="search-form">
+  <input matInput placeholder="Search Blog by title" type="text"
+  [(ngModel)]="searchTerm" (input)="search(searchTerm)">
+</mat-form-field>
+<br>
+
+
+<div class="container" fxLayout="row wrap"fxLayout.xs="column"
+     fxLayoutWrap
+     fxLayoutGap="0.5%"
+     fxLayoutAlign="center"
+     >
+     <div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center" *ngIf="loading$ | async">
+      <mat-progress-spinner [mode]="'indeterminate'"></mat-progress-spinner>
+    </div>
+  <div fxFlex="20%" *ngFor="let blog of blogs">
+    <mat-card>
+      <mat-card-title fxLayout.gt-xs="row wrap" fxLayout.xs="column">
+        <span fxFlex="80%">{{blog.title}}</span>
+        <mat-icon fxFlex="10%">mode_edit</mat-icon>
+        <mat-icon fxFlex="10%">delete</mat-icon>
+      </mat-card-title>
+      <mat-card-subtitle>{{blog.bloggerName}}</mat-card-subtitle>
+    </mat-card>
+  </div>
+  
+</div>
+

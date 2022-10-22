@@ -1,0 +1,19 @@
+<div class="container">
+  <form [formGroup]="blogCreateForm" class="example-form" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="title">Title:</mat-label>
+      <input matInput placeholder="Enter a title" id="title" type="text" formControlName="title">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label for="bloggerName">Blogger Name:</mat-label>
+      <input matInput placeholder="Enter blogger name" id="bloggerName" type="text" formControlName="bloggerName">
+    </mat-form-field>
+
+    <angular-editor formControlName="content" class="example-full-width" [config]="editorConfig"></angular-editor>
+
+    <button mat-raised-button class="example-full-width" color="primary" type="submit">Create Blog</button>
+  </form> 
+
+</div>

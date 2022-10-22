@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{description}}</h2>
+
+<mat-dialog-content [formGroup]="blogForm">
+  
+    
+    <mat-form-field>
+        <mat-label for="title">Title:</mat-label>
+        <input matInput placeholder="Enter a title" id="title" type="text" formControlName="title">
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label for="bloggerName">Blogger Name:</mat-label>
+        <input matInput placeholder="Enter blogger name" id="bloggerName" type="text" formControlName="bloggerName">
+      </mat-form-field>
+      
+      <mat-form-field>
+        <angular-editor formControlName="content" [config]="editorConfig"></angular-editor>
+      </mat-form-field>
+     
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button"(click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary"(click)="save()">Save</button>
+</mat-dialog-actions>
